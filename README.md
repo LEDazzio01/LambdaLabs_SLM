@@ -1,4 +1,4 @@
-# Supervised Machine Learning (SLM) Project
+# Small Language Model (SLM) Project
 
 ## Overview
 This project focuses on training a custom Transformer-based small language model (SLM) using a supervised machine learning approach. The model is designed to learn language patterns from a subset of the OpenWebText dataset, with the goal of producing a robust language representation that can generate meaningful text sequences. This repository contains the training code, dataset preparation scripts, and instructions for replicating the project.
