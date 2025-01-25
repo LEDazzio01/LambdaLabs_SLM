@@ -109,8 +109,8 @@ Special thanks to:
 
 ## Contact
 For questions or feedback, feel free to reach out:
-- **Email**: your.email@example.com
-- **GitHub**: [your-username](https://github.com/your-username)
+- **Email**: elaine.dazzio@gmail.com
+- **LinkedIn**: https://www.linkedin.com/in/l-elaine-dazzio
 
 
 
