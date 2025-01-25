@@ -67,9 +67,9 @@ The language model is implemented using PyTorch and includes the following compo
    ```
 
 2. Run the Jupyter Notebook:
-```bash
-jupyter notebook Small_Language_Model.ipynb
-```
+  ```bash
+  jupyter notebook Small_Language_Model.ipynb
+  ```
 
 ---
 
