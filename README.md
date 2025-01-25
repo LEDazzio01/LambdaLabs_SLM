@@ -1,116 +1,93 @@
-# Small Language Model (SLM) Project
+# Small Language Model Project
 
-## Overview
-This project focuses on training a custom Transformer-based small language model (SLM) using a supervised machine learning approach. The model is designed to learn language patterns from a subset of the OpenWebText dataset, with the goal of producing a robust language representation that can generate meaningful text sequences. This repository contains the training code and instructions for replicating the project.
-
----
+This repository contains the implementation of a simple Transformer-based small language model, designed for educational purposes and experimentation. The project demonstrates the use of PyTorch for building and training language models.
 
 ## Features
-- **Transformer-Based Architecture**: A custom implementation of a Transformer model with:
-  - 6 layers
-  - 512 embedding dimensions
-  - 8 attention heads
-  - 2048 hidden units
-- **Custom Dataset**: Training data tokenized and prepared from the OpenWebText dataset.
-- **Mixed Precision Training**: Efficient training with PyTorch's `torch.cuda.amp` for faster computations and reduced memory usage.
-- **Scalable Hardware Usage**: Designed for high-performance training on multi-GPU setups, tested on an 8 x A100 instance.
 
----
+- Transformer-based architecture with token and positional embeddings.
+- Configurable model hyperparameters including embedding size, number of layers, and heads.
+- Mixed precision training for efficient GPU utilization.
+- Adaptive learning rate scheduling with `ReduceLROnPlateau`.
+- Training and validation on dummy datasets.
+- Gradient clipping to prevent exploding gradients.
+- Saves model checkpoints for resuming training.
 
-## Dataset
-The dataset used for this project is a 10 million token subset of the OpenWebText dataset. Text is tokenized using the `bert-base-uncased` tokenizer from the Hugging Face Transformers library.
+## Requirements
 
-### Dataset Preparation
-1. The dataset is downloaded using the `datasets` library.
-2. Text data is tokenized in batches for efficiency.
-3. Tokenized data is saved as `tokenized_openwebtext.pt` for reuse.
-
----
-
-## Model Architecture
-The language model is implemented using PyTorch and includes the following components:
-- **Token Embeddings**: Encodes input tokens into a dense vector representation.
-- **Positional Embeddings**: Adds positional information to token embeddings.
-- **Transformer Encoder**: Composed of multiple layers with self-attention and feed-forward sublayers.
-- **Output Layer**: Projects the hidden representations back into the vocabulary size for token prediction.
-
----
-
-## Training Setup
-- **Hardware**: Training performed on an 8 x A100 GPU instance.
-- **Batch Size**: 64 (configurable based on memory availability).
-- **Optimizer**: AdamW with a learning rate of 5e-5.
-- **Loss Function**: CrossEntropyLoss applied to token predictions.
-- **Epochs**: 10
-- **Mixed Precision**: Enabled using `torch.cuda.amp.GradScaler` for faster and memory-efficient training.
-
-### Training Loop
-1. Data is loaded in batches using a custom `TextDataset` and PyTorch's `DataLoader`.
-2. Each batch processes input and target sequences to calculate loss.
-3. Backpropagation is performed with mixed precision scaling for efficiency.
-4. Model checkpoints are saved periodically.
-
----
-
-## Getting Started
-### Prerequisites
 - Python 3.8+
-- PyTorch 2.0+
-- Transformers library
-- Datasets library
+- PyTorch 1.12+
+- tqdm
 
-### Installation
-1. Clone the repository:
+To install dependencies:
+```bash
+pip install torch tqdm
+```
+
+## How to Use
+
+1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/slm-project.git
-   cd slm-project
+   git clone https://github.com/your_username/your_repository.git
+   cd your_repository
    ```
 
-2. Run the Jupyter Notebook:
-  ```bash
-  jupyter notebook Small_Language_Model.ipynb
-  ```
+2. **Run the Model:**
+   ```bash
+   python Small_Language_Model.py
+   ```
 
-  ---
+3. **Outputs:**
+   - Training progress with batch-wise loss.
+   - Validation loss and accuracy at the end of training.
+   - Model checkpoint saved as `simple_language_model.pt`.
 
-## Results
-- Training logs include loss values per batch and per epoch.
-- Final model checkpoint saved as `small_language_model.pt`.
+## Model Architecture
 
-### Example Logs
-```
-Epoch 1, Batch 0, Loss: 5.2345
-Epoch 1, Batch 10, Loss: 4.8762
-...
-Epoch 1/10, Loss: 4.5123
-```
+- **Embeddings:**
+  - Token embedding: Maps vocabulary tokens to dense vector representations.
+  - Positional embedding: Adds positional information to token embeddings.
 
----
+- **Transformer Encoder:**
+  - Multiple self-attention layers.
+  - Configurable number of layers and heads.
 
-## Future Work
-- Expand the dataset size for better model generalization.
-- Implement additional regularization techniques to prevent overfitting.
-- Fine-tune the trained model on domain-specific datasets for specialized tasks.
+- **Output Layer:**
+  - Fully connected layer to map embeddings to vocabulary size.
 
----
+## Hyperparameters
 
-## License
-This project is licensed under the MIT License. See `LICENSE` for details.
+| Parameter       | Value   |
+|-----------------|---------|
+| Vocabulary Size | 10,000  |
+| Embedding Dim   | 128     |
+| Number of Heads | 4       |
+| Layers          | 2       |
+| Hidden Dim      | 512     |
+| Max Seq Length  | 128     |
+| Batch Size      | 32      |
+| Learning Rate   | 1e-3    |
+| Epochs          | 5       |
 
----
+## Known Issues
+
+- Validation accuracy remains low due to dummy dataset.
+- Requires substantial GPU resources for larger datasets or experiments.
+
+## Future Improvements
+
+- Implement a real-world dataset.
+- Add support for CPU-only training for resource-constrained environments.
+- Explore alternative optimizers like AdamW.
+- Integrate metrics like perplexity for deeper evaluation.
 
 ## Acknowledgments
-Special thanks to:
-- The OpenWebText team for providing the dataset.
-- The PyTorch and Hugging Face communities for their excellent libraries.
-- Lambda Labs for providing the computing resources.
 
----
+This project was developed as a learning tool to understand Transformer architectures and PyTorch.
 
-## Contact
-For questions or feedback, feel free to reach out:
-- **Email**: elaine.dazzio@gmail.com
-- **LinkedIn**: https://www.linkedin.com/in/l-elaine-dazzio
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
 
 
