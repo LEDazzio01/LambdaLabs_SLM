@@ -66,7 +66,7 @@ The language model is implemented using PyTorch and includes the following compo
    cd slm-project
    ```
 
-Run the Jupyter Notebook:
+2. Run the Jupyter Notebook:
 ```bash
 jupyter notebook Small_Language_Model.ipynb
 ```
