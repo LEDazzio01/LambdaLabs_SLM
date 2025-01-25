@@ -65,20 +65,11 @@ The language model is implemented using PyTorch and includes the following compo
    git clone https://github.com/your-username/slm-project.git
    cd slm-project
    ```
-2. Install dependencies:
-   ```bash
-   pip install torch transformers datasets
-   ```
 
-### Running the Training Script
-1. Prepare the dataset:
-   ```bash
-   python prepare_dataset.py
-   ```
-2. Train the model:
-   ```bash
-   python train_model.py
-   ```
+Run the Jupyter Notebook:
+```bash
+jupyter notebook Small_Language_Model.ipynb
+```
 
 ---
 
@@ -120,4 +111,6 @@ Special thanks to:
 For questions or feedback, feel free to reach out:
 - **Email**: your.email@example.com
 - **GitHub**: [your-username](https://github.com/your-username)
+
+
 
